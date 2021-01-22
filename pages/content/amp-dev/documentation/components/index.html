@@ -36,7 +36,28 @@ recent_components:
 
 {% block main %}
 {% include 'views/partials/sidebar-toggle-observer.j2' %}
+
 <main class="ap--main ap-t-component-overview">
+  {% with survey_questions = {
+    "survey": "THE_FIRST_ONE",
+    "questions": [{
+        "text": "How helpful was the documentation today?",
+        "type": "likert"
+      }, {
+        "text": "Did you find the documentation you were looking for?",
+        "type": "likert"
+      }, {
+        "text": "How easy or difficult was it to find the documentation you were looking for?",
+        "type": "likert"
+      }, {
+        "text": "Would you like to leave any feedback on the documentation?",
+        "type": "open"
+      }]
+  } %}
+    {% include 'views/partials/survey.j2' %}
+  {% endwith %}
+
+
   <div class="ap--container">
     {% include 'views/partials/sidebar-toggle.j2' %}
     <span id="ap--sidebar-content" class="ap--sidebar"></span>

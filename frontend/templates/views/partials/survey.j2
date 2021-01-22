@@ -1,0 +1,13 @@
+{% if survey_questions %}
+  {% do doc.styles.addCssFile('css/components/organisms/survey.css') %}
+
+  <amp-state id="surveyQuestions">
+    <script type="application/json">
+      {{ survey_questions | tojson }}
+    </script>
+  </amp-state>
+
+  <amp-script src="/static/survey.js" width="450" height="1205"  id="fez-container" sandbox="allow-forms">
+  </amp-script>
+
+{% endif %}
